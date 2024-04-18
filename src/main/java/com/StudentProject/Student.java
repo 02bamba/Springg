@@ -1,7 +1,13 @@
 package com.StudentProject;
 
-public class Student {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+@Entity
+public class Student {
+    @Id
+    @GeneratedValue(generator = "AUTO")
     private Long id;
     private String name;
     private String fatherName;

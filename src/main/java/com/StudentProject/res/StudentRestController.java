@@ -4,13 +4,10 @@ import com.StudentProject.Service.IStudent;
 import com.StudentProject.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RestController
 @RequestMapping("/api")
 public class StudentRestController {
     @Autowired
@@ -20,6 +17,11 @@ public Student registerStudent(Student student){
     Student st = service.saveStudent(student);
     return student;
 }
+//
+//@GetMapping("/hello")
+//public  void sayHello(){
+//    System.out.println("Hello, Your Server is Ok !");
+//}
 
 @GetMapping("/students")
     public List<Student> getAllStudent (){
@@ -32,7 +34,7 @@ public Student registerStudent(Student student){
     return new Student();
 }
 
-@GetMapping("/student/{id}")
+@DeleteMapping("/student/{id}")
     public ResponseEntity<Student> deleteStudentById(@PathVariable Long id){
         Student student = service.getStudentById(id);
         return ResponseEntity.noContent().build();
