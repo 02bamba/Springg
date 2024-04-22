@@ -10,4 +10,6 @@ public interface IStudent {
     List<Student> getAllStudents();
 
     Student getStudentById(Long id);
+
+    void deleteStudentById(Long id);
 }
