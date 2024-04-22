@@ -35,6 +35,12 @@ public Student registerStudent(Student student){
     return new ResponseEntity<Student>(student,HttpStatus.OK);
 }
 
+    @PutMapping("/student/{id}")
+    public ResponseEntity<Student> updateStudentById(@PathVariable Long id){
+        Student student = service.updateStudentById(id);
+        return new ResponseEntity<Student>(student,HttpStatus.OK);
+    }
+
 @DeleteMapping("/student/{id}")
     public ResponseEntity<Student> deleteStudentById(@PathVariable Long id){
         service.deleteStudentById(id);

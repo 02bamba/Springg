@@ -30,6 +30,13 @@ public class studentService implements IStudent{
         return optional.get();
     }
 
+    public Student updateStudentById(Long id){
+        Optional<Student> student = repo.findById(id);
+         student.get();
+//        return repo.saveAndFlush(student);
+
+    }
+
     @Override
     public void deleteStudentById(Long id) {
         repo.deleteById(id);
